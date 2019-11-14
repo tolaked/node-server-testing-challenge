@@ -29,5 +29,7 @@ function findById(id) {
 }
 
 function remove(id) {
-  return null;
+  return db("users")
+    .where("id", id)
+    .del();
 }

@@ -44,6 +44,18 @@ router.post("/login", (req, res) => {
     });
 });
 
+router.delete("/delete/:id", (req, res) => {
+  Users.remove(Number(req.params.id))
+    .then(user => {
+      res.status(200).json({ message: `removed ${user} user` });
+    })
+    .catch(error => {
+      res.status(500).json({
+        "error removing project": error.message
+      });
+    });
+});
+
 function generateToken(user) {
   const result = jwt.sign(
     { subject: user.location, username: user.username },
