@@ -4,7 +4,9 @@
   "description": "Node Server Testing Challenge",
   "main": "server.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "cross-env DB_ENV=testing jest --watchAll",
+    "server": "nodemon index.js",
+    "start": "node index.js"
   },
   "jest": {
     "testEnvironment": "node"
@@ -22,9 +24,16 @@
   "homepage": "https://github.com/LambdaSchool/node-server-testing#readme",
   "devDependencies": {
     "jest": "^24.9.0",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "helmet": "^3.19.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.19.1",
+    "sqlite3": "^4.0.9"
   }
 }
